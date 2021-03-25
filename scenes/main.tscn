@@ -1,0 +1,110 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://scenes/mouse.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/bulletsystem.gd" type="Script" id=4]
+[ext_resource path="res://scripts/objectsystem.gd" type="Script" id=5]
+[ext_resource path="res://scripts/main.gd" type="Script" id=6]
+[ext_resource path="res://scenes/start_screen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/healthGUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/pause.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Pointssystem.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/time.tscn" type="PackedScene" id=11]
+[ext_resource path="res://textures/mouse-2.png" type="Texture" id=12]
+[ext_resource path="res://textures/healtdown.png" type="Texture" id=13]
+[ext_resource path="res://scenes/soundeffects.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scripts/soundeffects.gd" type="Script" id=15]
+[ext_resource path="res://music/SpaceIndavers-OpenGL-theme.ogg" type="AudioStream" id=16]
+[ext_resource path="res://scripts/Music.gd" type="Script" id=17]
+
+[sub_resource type="Environment" id=1]
+glow_enabled = true
+glow_intensity = 3.45
+glow_bloom = 0.33
+
+[node name="main" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.827451, 0.827451, 0.827451, 1 )
+
+[node name="background" parent="." instance=ExtResource( 3 )]
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 57.6766, 114.759 )
+
+[node name="bulletsystem" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="objectsystem" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="healthGUI" parent="." instance=ExtResource( 8 )]
+
+[node name="2" parent="healthGUI/animations" index="1"]
+modulate = Color( 1, 1, 1, 1 )
+scale = Vector2( 1, 1 )
+
+[node name="3" parent="healthGUI/animations" index="2"]
+modulate = Color( 1, 1, 1, 1 )
+scale = Vector2( 1, 1 )
+
+[node name="Pointssystem" parent="." instance=ExtResource( 10 )]
+
+[node name="Label" parent="Pointssystem" index="1"]
+text = "Punkty: 0"
+
+[node name="time" parent="." instance=ExtResource( 11 )]
+
+[node name="pause" parent="." instance=ExtResource( 9 )]
+
+[node name="damage" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+
+[node name="mouse" parent="." instance=ExtResource( 1 )]
+position = Vector2( -290.762, -16.0543 )
+texture = ExtResource( 12 )
+
+[node name="start_screen" parent="." instance=ExtResource( 7 )]
+visible = false
+
+[node name="soundeffects" parent="." instance=ExtResource( 14 )]
+script = ExtResource( 15 )
+
+[node name="wrench" parent="soundeffects" index="0"]
+volume_db = -10.0
+
+[node name="rock-destroy" parent="soundeffects" index="1"]
+volume_db = -10.0
+
+[node name="laser" parent="soundeffects" index="3"]
+volume_db = -10.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -10.0
+script = ExtResource( 17 )
+
+[editable path="player"]
+
+[editable path="healthGUI"]
+
+[editable path="Pointssystem"]
+
+[editable path="pause"]
+
+[editable path="soundeffects"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rock-destroy.ogg-af5fa3edc320b99ad4d8a1a3747df4f7.oggstr"
+
+[deps]
+
+source_file="res://sounds/rock-destroy.ogg"
+dest_files=[ "res://.import/rock-destroy.ogg-af5fa3edc320b99ad4d8a1a3747df4f7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

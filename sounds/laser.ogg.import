@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/laser.ogg-2dcde51c0f0a82d4c35f53e39025e7df.oggstr"
+
+[deps]
+
+source_file="res://sounds/laser.ogg"
+dest_files=[ "res://.import/laser.ogg-2dcde51c0f0a82d4c35f53e39025e7df.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
