@@ -3,7 +3,7 @@
  Gra zrobiona w Godot (Polska gra).
 
 ## Użyte materiały
- SpaceIndvaders OpenGL theme - muzyka z gry SpaceIndvaders OpenGL.
+ Space Invaders OpenGL theme - muzyka z gry Space Invaders OpenGL.
  Silnik gry - Godot Engine.
 
 ## Stworzone materiały
